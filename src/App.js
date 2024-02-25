@@ -120,7 +120,7 @@ const Switch = () => {
   )
 }
 
-const List = () => { return ( <div> { isTodoView() ? ( <TodoList /> ) : ( <BacklogList /> ) } </div> ) }
+const List = () => { return ( isTodoView() ? ( <TodoList /> ) : ( <BacklogList /> ) ) }
 
 const Add = () => { return ( <button className="add-task-button" id="add-button-id" onClick={handleAddButton} /> ) }
 
