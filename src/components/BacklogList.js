@@ -69,13 +69,13 @@ const BacklogList = () => {
     const sortedList = (list) => {
         let sortedList = []
         for (let i = 0; i < list.length; i++) {
-            if (getTaskPriority(list[i].props.children[1].props.children[1].props.children.props.children) === '#F51200') {sortedList.push(list[i])}
+            if (getTaskPriority(list[i].props.children[2].props.children.props.children.props.children) === '#F51200') {sortedList.push(list[i])}
         }
         for (let i = 0; i < list.length; i++) {
-            if (getTaskPriority(list[i].props.children[1].props.children[1].props.children.props.children) === '#4300F5') {sortedList.push(list[i])}
+            if (getTaskPriority(list[i].props.children[2].props.children.props.children.props.children) === '#4300F5') {sortedList.push(list[i])}
         }
         for (let i = 0; i < list.length; i++) {
-            if (getTaskPriority(list[i].props.children[1].props.children[1].props.children.props.children) === 'white') {sortedList.push(list[i])}
+            if (getTaskPriority(list[i].props.children[2].props.children.props.children.props.children) === 'white') {sortedList.push(list[i])}
         }
         return sortedList
     }
@@ -89,13 +89,14 @@ const BacklogList = () => {
                 var list = backlogList.map((element, index) => (
                     <div className="backlog-task-wrapper" key={`backlog-task-wrapper-${index}`}>
                         <div className="backlog-task-prioryty" key={`backlog-task-prioryty-${index}`} style={{ backgroundColor: `${getTaskPriority(element)}`}}/>
-                        <div className="backlog-task-container" key={`backlog-task-container-${index}`}>
-                            <div className="backlog-task-buttons-wrapper" id={`backlog-task-buttons-wrapper-${index}`}>
+                        <div className="backlog-task-buttons-wrapper" id={`backlog-task-buttons-wrapper-${index}`}>
                                 <button className="backlog-move" key={`"backlog-move-${index}`} onClick={() => {moveToTodo(element, index);refresh()}} />
                                 <button className="backlog-task-priority-button-red" onClick={() => {changePriorityOnRed(element, index);refresh()}}/>
                                 <button className="backlog-task-priority-button-blue" onClick={() => {changePriorityOnBlue(element, index);refresh()}}/>
-                                <button className="backlog-task-priority-button-white" onClick={() => {changePriorityOnWhite(element, index);refresh()}}/>                         
-                            </div>
+                                <button className="backlog-task-priority-button-white" onClick={() => {changePriorityOnWhite(element, index);refresh()}}/>  
+                                <button className="todo-buttons-close"  key={`"todo-buttons-close-${index}`} onClick={() => {hideFunctionalButtons(index)}} />                       
+                        </div>
+                        <div className="backlog-task-container" key={`backlog-task-container-${index}`}>
                             <div className="backlog-task-small-wrapper" onClick={() => {showFunctionalButtons(index)}}>
                                 <button
                                     className="backlog-task"

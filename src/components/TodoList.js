@@ -74,13 +74,13 @@ const TodoList = () => {
     const sortedList = (list) => {
         let sortedList = []
         for (let i = 0; i < list.length; i++) {
-            if (getTaskPriority(list[i].props.children[2].props.children[1].props.children.props.children) === '#F51200') {sortedList.push(list[i])}
+            if (getTaskPriority(list[i].props.children[3].props.children.props.children.props.children) === '#F51200') {sortedList.push(list[i])}
         }
         for (let i = 0; i < list.length; i++) {
-            if (getTaskPriority(list[i].props.children[2].props.children[1].props.children.props.children) === '#4300F5') {sortedList.push(list[i])}
+            if (getTaskPriority(list[i].props.children[3].props.children.props.children.props.children) === '#4300F5') {sortedList.push(list[i])}
         }
         for (let i = 0; i < list.length; i++) {
-            if (getTaskPriority(list[i].props.children[2].props.children[1].props.children.props.children) === 'white') {sortedList.push(list[i])}
+            if (getTaskPriority(list[i].props.children[3].props.children.props.children.props.children) === 'white') {sortedList.push(list[i])}
         }
         return sortedList
     }
@@ -95,13 +95,14 @@ const TodoList = () => {
                     <div className="todo-task-wrapper" key={`todo-task-wrapper-${index}`}>
                         <button className="todo-done" id={`todo-done-${index}`} onClick={() => {handleTaskDone(element, index)}} key={`todo-done-${index}`} />
                         <div className="todo-task-prioryty" key={`todo-task-prioryty-${index}`} style={{ backgroundColor: `${getTaskPriority(element)}`}}/>
-                        <div className="todo-task-container" key={`todo-task-container-${index}`}>
-                            <div className="todo-task-buttons-wrapper" id={`todo-task-buttons-wrapper-${index}`}>
+                        <div className="todo-task-buttons-wrapper" id={`todo-task-buttons-wrapper-${index}`}>
                                 <button className="todo-task-priority-button-red" onClick={() => {changePriorityOnRed(element, index);refresh()}}/>
                                 <button className="todo-task-priority-button-blue" onClick={() => {changePriorityOnBlue(element, index);refresh()}}/>
                                 <button className="todo-task-priority-button-white" onClick={() => {changePriorityOnWhite(element, index);refresh()}}/>
-                                <button className="todo-move" key={`"todo-move-${index}`} onClick={() => {moveToBacklog(element, index);refresh()}} />                           
-                            </div>
+                                <button className="todo-move" key={`"todo-move-${index}`} onClick={() => {moveToBacklog(element, index);refresh()}} />
+                                <button className="todo-buttons-close"  key={`"todo-buttons-close-${index}`} onClick={() => {hideFunctionalButtons(index)}} />                 
+                        </div>
+                        <div className="todo-task-container" key={`todo-task-container-${index}`}>
                             <div className="todo-task-small-wrapper" onClick={() => {showFunctionalButtons(index)}}>
                                 <button
                                     className="todo-task"

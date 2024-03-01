@@ -44,14 +44,15 @@ const initTaskPriority = (newTask) => {
 
 const addTask = () => {
   const list = getListFromStorage().split(',')
-  const newTask = textInput.current.value
-  if (newTask !== '') {
+  const newTask = `${textInput.current.value}`
+  const newtaskWithoutCommas = newTask.replaceAll(",","")
+  if (newtaskWithoutCommas !== '') {
     const emptyIndex = list.indexOf("empty")
     if (emptyIndex > -1) {
       list.splice(emptyIndex, 1)
     }
-    list.push(newTask)
-    initTaskPriority(newTask)
+    list.push(newtaskWithoutCommas)
+    initTaskPriority(newtaskWithoutCommas)
     updateList(list)
   }
   clearInput()

@@ -1,1 +1,5 @@
 # todo-app
+
+run - npm run start
+push - git push -u origin main
+gh-pages - npm run deploy
