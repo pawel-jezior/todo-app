@@ -167,9 +167,7 @@ return (
     <List />
     <Modal />
     <Add />
-
   </div>
-)
-};
+)};
 
 export default App;

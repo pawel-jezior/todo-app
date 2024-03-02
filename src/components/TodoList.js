@@ -1,4 +1,5 @@
 import { refresh } from "../utils";
+import Logo from "./Logo";
 
 const TodoList = () => {
 
@@ -89,7 +90,7 @@ const TodoList = () => {
         if (todoListStorage) {
             let todoList = todoListStorage.split(',')
             if (todoList.length === 1 && todoList.indexOf('empty') > -1) {
-                return null
+                return <Logo />
             } else {
                 var list = todoList.map((element, index) => (
                     <div className="todo-task-wrapper" key={`todo-task-wrapper-${index}`}>

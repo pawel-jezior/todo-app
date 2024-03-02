@@ -11,33 +11,41 @@ html {
   width: 100%;
   height: 100%;
 }
-
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
-
 *:focus {
   outline: none;
 }
-
-.app {}
-
- .todo-task {
+.app {
+  display: flex;
+  justify-content: center;
+}
+.todo-task,
+.backlog-task,
+.todo-button,
+.todo-button.active,
+.backlog-button,
+.backlog-button.active,
+.modal-input {
+  font-family: "Varela Round", sans-serif;
+  font-weight: 600;
+  color: #313131;
+  font-size: 14px;
+}
+.todo-task, .backlog-task {
   color: #313131;
   border: 1px solid #fff;
   background-color: #fff;
   position: relative;
   text-align: left;
   height: fit-content;
-  font-family: "Varela Round", sans-serif;
-  font-weight: 600;
-  color: #313131;
-  font-size: 14px;
+  margin-top: 2px;
   width: fit-content;
  }
-.todo-task-wrapper {
+.todo-task-wrapper, .backlog-task-wrapper {
   display: flex;
   flex-direction: row;
   margin-bottom: 12px;
@@ -51,13 +59,15 @@ html {
   background-color: #fff;
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
-.todo-done {
+.todo-done, .backlog-done {
   margin-left: -3px;
   border: 2px solid #fff;
   width: 10%;
   max-width: 24px;
   height: 24px;
   border-radius: 12px;
+}
+.todo-done {
   background: #fff url("./images/quad.svg") center no-repeat;
   background-size: 20px 20px;
 }
@@ -70,15 +80,15 @@ html {
   width: 10%;
   max-width: 10px;
   border-radius: 5px;
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.35);
   margin: 0 4px;
 }
-.todo-task-container {
+.todo-task-container, .backlog-task-container {
   position: relative;
   width: 80%;
 }
-.todo-task-buttons-wrapper {
-  box-shadow: 0 0 0 9999px rgba(48, 36, 36, 0.507);
+.todo-task-buttons-wrapper, .backlog-task-buttons-wrapper {
+  box-shadow: 0 0 0 9999px rgba(48, 36, 36, 0.5);
   display: none;
   justify-content: space-between;
   align-items: center;
@@ -93,13 +103,19 @@ html {
   padding: 4px;
 }
 .todo-move {
+  background: #f5f4f5 url("./images/moveYellow.svg") center no-repeat;
+  background-size: 30px 30px;
+  margin-left: 8px;
+}
+.backlog-move {
+  background: #f5f4f5 url("./images/move.svg") center no-repeat;
+  background-size: 30px 30px;
+}
+.todo-move, .backlog-move {
   height: 44px;
   width: 128px;
   border-radius: 22px;
   border: 1px solid #dbdbdb;
-  background: #f5f4f5 url("./images/moveYellow.svg") center no-repeat;
-  background-size: 30px 30px;
-  margin-left: 8px;
 }
 .todo-buttons-close, .backlog-buttons-close {
   position: absolute;
@@ -112,28 +128,28 @@ html {
   background: #f5f4f5 url("./images/crossGray.svg") center no-repeat;
   background-size: 22px 22px;
 }
-.todo-task-priority-button-red {
+.todo-task-priority-button-red, .backlog-task-priority-button-red {
   height: 44px;
   width: 44px;
   background-color: #F51200;
   border-radius: 22px;
   border: 1px solid #c40d00;
 }
-.todo-task-priority-button-blue {
+.todo-task-priority-button-blue, .backlog-task-priority-button-blue {
   height: 44px;
   width: 44px;
   background-color: #4300F5;
   border-radius: 22px;
   border: 1px solid #3000b3;
 }
-.todo-task-priority-button-white {
+.todo-task-priority-button-white, .backlog-task-priority-button-white {
   height: 44px;
   width: 44px;
   background-color: white;
   border-radius: 22px;
   border: 1px solid rgb(230, 230, 230);
 }
-.todo-task.done::after {
+.todo-task.done::after, .backlog-task.done::after {
   content: ' ';
   position: absolute;
   top: 50%;
@@ -146,149 +162,41 @@ html {
   animation-iteration-count: 1;
   animation-fill-mode: forwards; 
 }
-
-.todo-list {
+.todo-list, .backlog-list {
   display:block;
   height: 100%;
   border-radius: 30px;
   margin-top: 88px;
   width: 90%;
 }
-
-.backlog-list {
-  display:block;
-  height: 100%;
-  border-radius: 30px;
-  margin-top: 88px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%; 
-}
-.todo-task-small-wrapper {
+.todo-task-small-wrapper, .backlog-task-small-wrapper {
   width: 100%;
   border: 1px solid #fff;
   background-color: #fff;
 }
 .backlog-task-wrapper {
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 12px;
-  min-height: 32px;
-  height: fit-content;
-  padding: 2px 2px 2px 6px;
-  align-items: center;
-  border-radius: 6px;
-  position: relative;
-  border: 1px solid #fff;
-  background-color: #fff;
-  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
 .backlog-done {
   margin-left: 0;
-  border: 2px solid #fff;
-  width: 10%;
-  max-width: 24px;
-  height: 24px;
-  border-radius: 12px;
   background: #fff url("./images/cross.svg") center no-repeat;
   background-size: 20px 20px;
   margin-top: 1px
 }
-.backlog-task-container {
-  position: relative;
-  width: 80%;
-}
-
-.backlog-task-buttons-wrapper {
-  box-shadow: 0 0 0 9999px rgba(48, 36, 36, 0.507);
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  background: #f5f4f5;
-  border-radius: 26px;
-  position: fixed;
-  top: 16px;
-  z-index: 1;
-  height: 52px;
-  padding: 4px;
-  width: 90%;
-  margin-left: -14px;
-}
-
-.backlog-move {
-  height: 44px;
-  width: 128px;
-  border-radius: 22px;
-  border: 1px solid #dbdbdb;
-  background: #f5f4f5 url("./images/move.svg") center no-repeat;
-  background-size: 30px 30px;
-  margin-right: 8px;
-}
-
-.backlog-task-priority-button-red {
-  height: 44px;
-  width: 44px;
-  background-color: #F51200;
-  border-radius: 22px;
-  border: 1px solid #c40d00;
-  
-}
-.backlog-task-priority-button-blue {
-  height: 44px;
-  width: 44px;
-  background-color: #4300F5;
-  border-radius: 22px;
-  border: 1px solid #3000b3;
-}
-.backlog-task-priority-button-white {
-  height: 44px;
-  width: 44px;
-  background-color: white;
-  border-radius: 22px;
-  border: 1px solid rgb(230, 230, 230);
-}
 .backlog-task-small-wrapper {
-  width: 100%;
-  border: 1px solid #fff;
-  background-color: #fff;
   margin-left: -4px;
-}
-.backlog-task {
-  color: #313131;
-  border: 1px solid #fff;
-  background-color: #fff;
-  position: relative;
-  text-align: left;
-  height: fit-content;
-  font-family: "Varela Round", sans-serif;
-  font-weight: 600;
-  color: #313131;
-  font-size: 14px;
-  width: fit-content;
 }
 .backlog-task.done {
   background: 2px solid black;
 }
-.backlog-task.done::after {
-  content: ' ';
+.logo {
   position: absolute;
-  top: 50%;
-  left: 0;
-  height: 1px;
-  background: black;
-  animation-name: strike;
-  animation-duration: 0.3s;
-  animation-timing-function: linear;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards; 
+  top: calc(50% - 48px);
+  left: calc(50% - 48px);
+  opacity: 0.1;
+  height: 96px;
+  width: 96px;
 }
-
-.app {
-  display: flex;
-  justify-content: center;
-}
-
 .switch-buttons-wrapper {
   display: flex;
   justify-content: center;
@@ -300,7 +208,6 @@ html {
   z-index: 1;
   box-shadow: 2px 0 2px 0 rgba(0, 0, 0, 0.15);
 }
-
 .switch-buttons {
   display: flex;
   justify-content: space-between;
@@ -312,83 +219,58 @@ html {
   width: 90%;
   box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 0.15);
 }
-
-.todo-button {
+.todo-button, .backlog-button {
   height: 40px;
   min-width: 40px;
   border-radius: 20px;
+  background: #26A671 url("./images/circle.svg") center no-repeat;
+  background-size: 20px 20px;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.15);
+}
+.todo-button {
   margin: 6px 3px 6px 6px;
   background: #26A671 url("./images/circle.svg") center no-repeat;
   background-size: 20px 20px;
   border: 2px solid #26A671;
-  font-family: "Varela Round", sans-serif;
-  font-weight: 600;
-  color: #313131;
-  font-size: 14px;
-  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.15);
 }
-
-.todo-button.active {
+.todo-button.active, .backlog-button.active {
   height: 40px;
   border-radius: 20px;
-  margin: 6px 3px 6px 6px;
   width: 90%;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.15);
+}
+.todo-button.active {
+  margin: 6px 3px 6px 6px;
   background: #26A671;
   border: 2px solid #26A671;
-  font-family: "Varela Round", sans-serif;
-  font-weight: 600;
-  color: #313131;
-  font-size: 14px;
-  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.15);
 }
-
 .backlog-button {
-  height: 40px;
-  min-width: 40px;
-  border-radius: 20px;
   margin: 6px 6px 6px 3px;
   background: #ffc31f url("./images/circle.svg") center no-repeat;
-  background-size: 18px 18px;
+  background-size: 20px 20px;
   border: 2px solid #ffc31f;
-  font-family: "Varela Round", sans-serif;
-  font-weight: 600;
-  color: #313131;
-  font-size: 14px;
-  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.15);
 }
-
 .backlog-button.active {
-  height: 40px;
-  border-radius: 20px;
   margin: 6px 6px 6px 3px;
   background: #ffc31f;
-  width: 90%;
   border: 2px solid #ffc31f;
-  font-family: "Varela Round", sans-serif;
-  font-weight: 600;
-  color: #313131;
-  font-size: 14px;
-  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.15);
 }
-
 .add-task-button {
   display: block;
   height: 56px;
   width: 56px;
   border-radius: 28px;
   border: 2px solid transparent;
-  background: #387abd url("./images/plus.svg") center no-repeat;
+  background: #326eaa url("./images/plus.svg") center no-repeat;
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.15);
   background-size: 34px 34px;
   position: fixed;
   right: 8%;
   bottom: 4%;
 }
-
 .add-task-button.hide {
   display: none;
 }
-
 .modal {
   display: flex;
   justify-content: center;
@@ -400,11 +282,9 @@ html {
   width: 90%;
   box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 0.15);
 }
-
 .modal.hide {
   display: none;
 }
-
 .modal-input {
   height: 40px;
   border-radius: 20px;
@@ -412,10 +292,6 @@ html {
   width: 100%;
   background: #ffffff;
   border: 1px solid rgb(230, 230, 230);
-  font-family: "Varela Round", sans-serif;
-  font-weight: 600;
-  color: #313131;
-  font-size: 14px;
   padding-left: 16px;
   padding-right: 16px;
 }

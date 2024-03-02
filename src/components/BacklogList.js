@@ -1,4 +1,5 @@
 import { refresh } from "../utils";
+import Logo from "./Logo";
 
 const BacklogList = () => {
 
@@ -84,7 +85,7 @@ const BacklogList = () => {
         if (backlogListStorage) {
             let backlogList = backlogListStorage.split(',')
             if (backlogList.length === 1 && backlogList.indexOf('empty') > -1) {
-                return null
+                return <Logo />
             } else {
                 var list = backlogList.map((element, index) => (
                     <div className="backlog-task-wrapper" key={`backlog-task-wrapper-${index}`}>
