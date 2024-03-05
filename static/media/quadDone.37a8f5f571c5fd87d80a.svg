@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="136.66454mm"
+   height="136.66452mm"
+   viewBox="0 0 136.66454 136.66452"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
@@ -29,20 +29,25 @@
      inkscape:object-paths="true"
      inkscape:snap-object-midpoints="true"
      inkscape:zoom="0.18529742"
-     inkscape:cx="291.42338"
-     inkscape:cy="-747.44701"
+     inkscape:cx="145.71169"
+     inkscape:cy="-1065.854"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <defs
      id="defs2" />
   <g
      inkscape:label="Warstwa 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-38.759391,-84.451436)">
     <path
        id="rect844"
        style="fill:#26a63e;fill-opacity:0.992157;fill-rule:evenodd;stroke-width:0.587235;stroke-linecap:round;paint-order:stroke markers fill"

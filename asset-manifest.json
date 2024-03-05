@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/todo-app/static/css/main.96271fc5.css",
+    "main.css": "/todo-app/static/css/main.e0e863b9.css",
     "main.js": "/todo-app/static/js/main.8cdd84e4.js",
     "static/media/circle.svg": "/todo-app/static/media/circle.756fef0de737e6597c60.svg",
-    "static/media/quadDone.svg": "/todo-app/static/media/quadDone.7d8cc1e5aba66e56afe0.svg",
+    "static/media/quadDone.svg": "/todo-app/static/media/quadDone.37a8f5f571c5fd87d80a.svg",
     "static/media/cross.svg": "/todo-app/static/media/cross.07785f421425d270adf1.svg",
     "static/media/plus.svg": "/todo-app/static/media/plus.0a6fedffa5fa0e0cdea6.svg",
+    "static/media/quad.svg": "/todo-app/static/media/quad.718775f4d955c4af546f.svg",
     "static/media/moveYellow.svg": "/todo-app/static/media/moveYellow.39e845c8a929dc1cdbd0.svg",
     "static/media/move.svg": "/todo-app/static/media/move.a2c557c532fde5c5aeac.svg",
     "static/media/crossGray.svg": "/todo-app/static/media/crossGray.968c47bd1c157c620027.svg",
-    "static/media/quad.svg": "/todo-app/static/media/quad.01ecd8dbd9fc43a1a61a.svg",
     "index.html": "/todo-app/index.html",
-    "main.96271fc5.css.map": "/todo-app/static/css/main.96271fc5.css.map",
+    "main.e0e863b9.css.map": "/todo-app/static/css/main.e0e863b9.css.map",
     "main.8cdd84e4.js.map": "/todo-app/static/js/main.8cdd84e4.js.map"
   },
   "entrypoints": [
-    "static/css/main.96271fc5.css",
+    "static/css/main.e0e863b9.css",
     "static/js/main.8cdd84e4.js"
   ]
 }
