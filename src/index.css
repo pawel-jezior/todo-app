@@ -69,11 +69,11 @@ html {
 }
 .todo-done {
   background: #fff url("./images/quad.svg") center no-repeat;
-  background-size: 20px 20px;
+  background-size: 10px 10px;
 }
 .todo-done.clicked {
   background: #fff url("./images/quadDone.svg") center no-repeat;
-  background-size: 20px 20px;
+  background-size: 10px 10px;
 }
 .todo-task-prioryty, .backlog-task-prioryty {
   height: 10px;
